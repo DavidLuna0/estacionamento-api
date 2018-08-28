@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import javax.persistence.ForeignKey;;
+import javax.persistence.ForeignKey;
 
 @Entity
 @Table(name="TB_USUARIO")

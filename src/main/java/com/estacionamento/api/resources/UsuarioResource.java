@@ -22,36 +22,37 @@ import com.estacionamento.api.repository.UsuarioRepository;
 public class UsuarioResource {
 
   @Autowired
-  UsuarioRepository usuarioRepository;
+  UsuarioRepository ur;
 
   @Autowired
-  EmpresaRepository empresaRepository;
+  EmpresaRepository er;
 
   @GetMapping("/usuarios")
   public List<Usuario> listaUsuarios() {
-    return usuarioRepository.findAll();
+    return ur.findAll();
   }
 
-  @GetMapping("/usuario/{id}")
+  @GetMapping("/usuario/{id}") // usuario ID
   public Usuario listaUsuarioPorId(@PathVariable(value = "id") long id) {
-    return usuarioRepository.findUsuarioById(id);
+    return ur.findUsuarioById(id);
   }
 
-  @PostMapping("/empresa/{empresaId}/usuario")
-  public Usuario salvaUsuario(@PathVariable(value = "empresaId") long empresaId, @RequestBody Usuario usuario) {
-    Empresa empresa = empresaRepository.findEmpresaById(empresaId);
+  @PostMapping("/empresa/{id}/usuario") // empresa ID
+  public Usuario salvaUsuario(@PathVariable(value = "id") long id, @RequestBody Usuario usuario) {
+    Empresa empresa = er.findEmpresaById(id);
     usuario.setEmpresa(empresa);
-    return usuarioRepository.save(usuario);
+    return ur.save(usuario);
   }
 
-  @DeleteMapping("/usuario")
-  public void deletaUsuario(@RequestBody Usuario usuario) {
-    usuarioRepository.delete(usuario);
+  @DeleteMapping("/remover/usuario/{id}") // usuario ID
+  public void deletaUsuario(@PathVariable(value = "id") long id) {
+    Usuario usuario = ur.findUsuarioById(id);
+    ur.delete(usuario);
   }
 
   @PutMapping("/usuario")
   public Usuario atualizaUsuario(@RequestBody Usuario usuario) {
-    return usuarioRepository.save(usuario);
+    return ur.save(usuario);
   }
 
 }

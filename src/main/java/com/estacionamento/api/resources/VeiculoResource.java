@@ -23,37 +23,38 @@ import com.estacionamento.api.repository.VeiculoRepository;
 public class VeiculoResource {
 
   @Autowired
-  VeiculoRepository veiculoRepository;
+  VeiculoRepository vr;
 
   @Autowired
-  PatioRepository patioRepository;
+  PatioRepository pr;
 
   @GetMapping("/veiculos")
   public List<Veiculo> listaVeiculos() {
-    return veiculoRepository.findAll();
+    return vr.findAll();
   }
 
-  @GetMapping("/veiculo/{id}")
+  @GetMapping("/veiculo/{id}") // veiculo ID
   public Veiculo listaVeiculoPorId(@PathVariable(value = "id") long id) {
-    return veiculoRepository.findById(id);
+    return vr.findVeiculoById(id);
   }
 
-  @PostMapping("patio/{patioId}/veiculo")
-  public Veiculo salvaVeiculo(@PathVariable(value = "patioId") long patioId, @RequestBody Veiculo veiculo) {
-    Patio patio = patioRepository.findPatioById(patioId);
+  @PostMapping("patio/{id}/veiculo") // patio ID
+  public Veiculo salvaVeiculo(@PathVariable(value = "id") long id, @RequestBody Veiculo veiculo) {
+    Patio patio = pr.findPatioById(id);
     veiculo.setPatio(patio);
     veiculo.setHrentrada(Calendar.getInstance());
-    return veiculoRepository.save(veiculo);
+    return vr.save(veiculo);
   }
 
-  @DeleteMapping("/veiculo")
-  public void deletaVeiculo(@RequestBody Veiculo veiculo) {
-    veiculoRepository.delete(veiculo);
+  @DeleteMapping("/remover/veiculo/{id}") // veiculo ID
+  public void deletaVeiculo(@PathVariable(value = "id") long id) {
+    Veiculo veiculo = vr.findVeiculoById(id);
+    vr.delete(veiculo);
   }
 
   @PutMapping("/veiculo")
   public Veiculo atualizaVeiculo(@RequestBody Veiculo veiculo) {
-    return veiculoRepository.save(veiculo);
+    return vr.save(veiculo);
   }
 
 }

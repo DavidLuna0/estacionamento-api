@@ -32,7 +32,7 @@ public class Patio implements Serializable {
   @GeneratedValue(strategy=GenerationType.AUTO)
   private long id;
   private String nome;
-  private Integer capaciade;
+  private Integer capacidade;
 
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "empresa_fk"), nullable = false)
@@ -64,14 +64,14 @@ public class Patio implements Serializable {
 		this.nome = nome;
 	}
 
-	public Integer getCapaciade()
+	public Integer getCapacidade()
 	{
-		return this.capaciade;
+		return this.capacidade;
 	}
 
-	public void setCapaciade(Integer capaciade)
+	public void setCapacidade(Integer capacidade)
 	{
-		this.capaciade = capaciade;
+		this.capacidade = capacidade;
 	}
 
 	public Empresa getEmpresa()

@@ -22,36 +22,37 @@ import com.estacionamento.api.repository.PatioRepository;
 public class PatioResource {
 
   @Autowired
-  PatioRepository patioRepository;
+  PatioRepository pr;
 
   @Autowired
-  EmpresaRepository empresaRepository;
+  EmpresaRepository er;
 
   @GetMapping("/patios")
   public List<Patio> listaPatios() {
-    return patioRepository.findAll();
+    return pr.findAll();
   }
 
-  @GetMapping("/patio/{id}")
+  @GetMapping("/patio/{id}") // patio ID
   public Patio listaPatioPorId(@PathVariable(value = "id") long id) {
-    return patioRepository.findPatioById(id);
+    return pr.findPatioById(id);
   }
 
-  @PostMapping("/empresa/{empresaId}/patio")
-  public Patio salvaPatio(@PathVariable(value = "empresaId") long empresaId, @RequestBody Patio patio) {
-    Empresa empresa = empresaRepository.findEmpresaById(empresaId);
+  @PostMapping("/empresa/{id}/patio") // empresa ID
+  public Patio salvaPatio(@PathVariable(value = "id") long id, @RequestBody Patio patio) {
+    Empresa empresa = er.findEmpresaById(id);
     patio.setEmpresa(empresa);
-    return patioRepository.save(patio);
+    return pr.save(patio);
   }
 
-  @DeleteMapping("/patio")
-  public void deletaPatio(@RequestBody Patio patio) {
-    patioRepository.delete(patio);
+  @DeleteMapping("/remover/patio/{id}") // patio ID
+  public void deletaPatio(@PathVariable(value = "id") long id) {
+    Patio patio = pr.findPatioById(id);
+    pr.delete(patio);
   }
 
   @PutMapping("/patio")
   public Patio atualizaPatio(@RequestBody Patio patio) {
-    return patioRepository.save(patio);
+    return pr.save(patio);
   }
 
 }

@@ -21,31 +21,31 @@ import com.estacionamento.api.repository.EmpresaRepository;
 public class EmpresaResource {
 
   @Autowired
-  EmpresaRepository empresaRepository;
+  EmpresaRepository er;
 
   @GetMapping("/empresas")
   public List<Empresa> listaEmpresas() {
-    return empresaRepository.findAll();
+    return er.findAll();
   }
 
-  @GetMapping("/empresa/{id}")
+  @GetMapping("/empresa/{id}") // empresa ID
   public Empresa listaEmpresaPorId(@PathVariable(value = "id") long id) {
-    return empresaRepository.findEmpresaById(id);
+    return er.findEmpresaById(id);
   }
 
   @PostMapping("/empresa")
   public Empresa salvEmpresa(@RequestBody Empresa empresa) {
-    return empresaRepository.save(empresa);
+    return er.save(empresa);
   }
 
   @DeleteMapping("/empresa")
   public void deletaEmpresa(@RequestBody Empresa empresa) {
-    empresaRepository.delete(empresa);
+    er.delete(empresa);
   }
 
   @PutMapping("/empresa")
   public Empresa atualizaEmpresa(@RequestBody Empresa empresa) {
-    return empresaRepository.save(empresa);
+    return er.save(empresa);
   }
 
 }
