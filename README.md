@@ -1,5 +1,4 @@
-# estacionamento-project
-- A college project -
+# Estacionamento Project
 API built with springboot and JPA. Use maven to gerenciate dependencies.
 
 # DB local
