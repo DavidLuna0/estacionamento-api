@@ -2,6 +2,7 @@ package com.estacionamento.api.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,12 +24,18 @@ public class Usuario implements Serializable {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
   private long id;
+  
+  @Column(nullable = false)
   private String nome;
+  
+  @Column(nullable = false)
   private String usuario;
+  
+  @Column(nullable = false)
   private String senha;
 
 	@ManyToOne
-	@JoinColumn(foreignKey = @ForeignKey(name = "empresa_fk"), nullable = false)
+	@JoinColumn(foreignKey = @ForeignKey(name = "empresa_usuario_fk"), nullable = false)
 	@JsonBackReference
   private Empresa empresa = new Empresa();
 

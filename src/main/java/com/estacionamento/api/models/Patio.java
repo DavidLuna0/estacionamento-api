@@ -43,7 +43,7 @@ public class Patio implements Serializable {
 	private double valorHora;
 
 	@ManyToOne
-	@JoinColumn(foreignKey = @ForeignKey(name = "empresa_fk"), nullable = false)
+	@JoinColumn(foreignKey = @ForeignKey(name = "empresa_patio_fk"), nullable = false)
 	@JsonBackReference
 	private Empresa empresa = new Empresa();
 

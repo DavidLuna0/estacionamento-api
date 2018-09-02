@@ -21,8 +21,8 @@ public class Veiculo implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @Id
-  @GeneratedValue(strategy=GenerationType.AUTO)
+  	@Id
+  	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 
 	@Column(nullable = false)
@@ -34,14 +34,14 @@ public class Veiculo implements Serializable {
 	@Column(nullable = true)
 	private String hrSaida;
 
-  @Column(nullable = false)
+	@Column(nullable = false)
 	private int status;
 
 	@Column(nullable = false)
 	private double valor;
 
 	@ManyToOne
-	@JoinColumn(foreignKey = @ForeignKey(name = "patio_fk"), nullable = false)
+	@JoinColumn(foreignKey = @ForeignKey(name = "patio_veiculo_fk"), nullable = false)
 	@JsonBackReference
 	private Patio patio = new Patio();
 
