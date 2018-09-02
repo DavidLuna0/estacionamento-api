@@ -27,10 +27,10 @@ public class Empresa implements Serializable {
   private long id;
   private String razaoSocial;
   private String nomeFantasia;
-  private Long cnpj;
-  private Long inscricao;
+  private long cnpj;
+  private long inscricao;
   private String endRua;
-  private Integer endNum;
+  private int endNum;
   private String endComp;
   private String endBairro;
   private String endCidade;
@@ -111,12 +111,12 @@ public class Empresa implements Serializable {
 		this.endRua = endRua;
 	}
 
-	public Integer getEndnum()
+	public int getEndnum()
 	{
 		return this.endNum;
 	}
 
-	public void setEndnum(Integer endNum)
+	public void setEndnum(int endNum)
 	{
 		this.endNum = endNum;
 	}

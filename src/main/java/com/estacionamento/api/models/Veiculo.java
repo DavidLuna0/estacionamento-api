@@ -1,9 +1,8 @@
 package com.estacionamento.api.models;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Calendar;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -26,17 +23,22 @@ public class Veiculo implements Serializable {
 
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
-  private long id;
+	private long id;
+
+	@Column(nullable = false)
 	private String placa;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar hrEntrada;
+	@Column(nullable = false)
+	private String hrEntrada;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar hrSaida;
+	@Column(nullable = true)
+	private String hrSaida;
 
-  private Integer status;
-	private BigDecimal valor;
+  @Column(nullable = false)
+	private int status;
+
+	@Column(nullable = false)
+	private double valor;
 
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "patio_fk"), nullable = false)
@@ -63,42 +65,42 @@ public class Veiculo implements Serializable {
 		this.placa = placa;
 	}
 
-	public Calendar getHrentrada()
+	public String getHrEntrada()
 	{
 		return this.hrEntrada;
 	}
 
-	public void setHrentrada(Calendar hrEntrada)
+	public void setHrEntrada(String hrEntrada)
 	{
 		this.hrEntrada = hrEntrada;
 	}
 
-	public Calendar getHrsaida()
+	public String getHrSaida()
 	{
 		return this.hrSaida;
 	}
 
-	public void setHrsaida(Calendar hrSaida)
+	public void setHrSaida(String hrSaida)
 	{
 		this.hrSaida = hrSaida;
 	}
 
-	public Integer getStatus()
+	public int getStatus()
 	{
 		return this.status;
 	}
 
-	public void setStatus(Integer status)
+	public void setStatus(int status)
 	{
 		this.status = status;
 	}
 
-	public BigDecimal getValor()
+	public double getValor()
 	{
 		return this.valor;
 	}
 
-	public void setValor(BigDecimal valor)
+	public void setValor(double valor)
 	{
 		this.valor = valor;
 	}

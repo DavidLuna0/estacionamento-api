@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -30,9 +31,16 @@ public class Patio implements Serializable {
 
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
-  private long id;
-  private String nome;
-  private Integer capacidade;
+	private long id;
+
+	@Column(nullable = false)
+	private String nome;
+
+	@Column(nullable = false)
+	private int capacidade;
+
+	@Column(nullable = false)
+	private double valorHora;
 
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "empresa_fk"), nullable = false)
@@ -64,14 +72,22 @@ public class Patio implements Serializable {
 		this.nome = nome;
 	}
 
-	public Integer getCapacidade()
+	public int getCapacidade()
 	{
 		return this.capacidade;
 	}
 
-	public void setCapacidade(Integer capacidade)
+	public void setCapacidade(int capacidade)
 	{
 		this.capacidade = capacidade;
+	}
+
+	public double getValorHora() {
+		return this.valorHora;
+	}
+
+	public void setValorHora(double valorHora) {
+		this.valorHora = valorHora;
 	}
 
 	public Empresa getEmpresa()
