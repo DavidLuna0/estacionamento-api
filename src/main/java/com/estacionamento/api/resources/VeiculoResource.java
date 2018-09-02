@@ -2,6 +2,7 @@ package com.estacionamento.api.resources;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -42,7 +43,7 @@ public class VeiculoResource {
   public Veiculo salvaVeiculo(@PathVariable(value = "id") long id, @RequestBody Veiculo veiculo) {
     Patio patio = pr.findPatioById(id);
     veiculo.setPatio(patio);
-    veiculo.setHrentrada(Calendar.getInstance());
+    veiculo.setHrentrada(Calendar.getInstance(TimeZone.getTimeZone("America/Sao_Paulo")));
     return vr.save(veiculo);
   }
 
@@ -55,7 +56,7 @@ public class VeiculoResource {
   @PutMapping("/veiculo/{id}") // veiculo ID
   public Veiculo atualizaVeiculo(@PathVariable(value = "id") long id) {
     Veiculo veiculo = vr.findVeiculoById(id);
-    veiculo.setHrsaida(Calendar.getInstance());
+    veiculo.setHrsaida(Calendar.getInstance(TimeZone.getTimeZone("America/Sao_Paulo")));
     veiculo.setStatus(2);
     return vr.save(veiculo);
   }
