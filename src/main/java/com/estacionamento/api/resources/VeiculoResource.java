@@ -52,8 +52,11 @@ public class VeiculoResource {
     vr.delete(veiculo);
   }
 
-  @PutMapping("/veiculo")
-  public Veiculo atualizaVeiculo(@RequestBody Veiculo veiculo) {
+  @PutMapping("/veiculo/{id}") // veiculo ID
+  public Veiculo atualizaVeiculo(@PathVariable(value = "id") long id) {
+    Veiculo veiculo = vr.findVeiculoById(id);
+    veiculo.setHrsaida(Calendar.getInstance());
+    veiculo.setStatus(2);
     return vr.save(veiculo);
   }
 
