@@ -40,7 +40,13 @@ public class Patio implements Serializable {
 	private int capacidade;
 
 	@Column(nullable = false)
-	private double valorHora;
+	private double valor;
+	
+	@Column(nullable = false)
+	private int periodo;
+	
+	@Column(nullable = false)
+	private double adicional;
 
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "empresa_patio_fk"), nullable = false)
@@ -82,12 +88,28 @@ public class Patio implements Serializable {
 		this.capacidade = capacidade;
 	}
 
-	public double getValorHora() {
-		return this.valorHora;
+	public double getValor() {
+		return this.valor;
 	}
 
-	public void setValorHora(double valorHora) {
-		this.valorHora = valorHora;
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+	
+	public int getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(int periodo) {
+		this.periodo = periodo;
+	}
+
+	public double getAdicional() {
+		return adicional;
+	}
+
+	public void setAdicional(double adicional) {
+		this.adicional = adicional;
 	}
 
 	public Empresa getEmpresa()

@@ -34,16 +34,16 @@ public class Empresa implements Serializable {
 	private String nomeFantasia;
 
 	@Column(nullable = false)
-	private long cnpj;
+	private String cnpj;
 
 	@Column(nullable = false)
-	private long inscricao;
+	private String inscricao;
 
 	@Column(nullable = false)
 	private String endRua;
 
 	@Column(nullable = false)
-	private int endNum;
+	private String endNum;
 
 	private String endComp;
 
@@ -57,7 +57,7 @@ public class Empresa implements Serializable {
 	private String endEstado;
 
 	@Column(nullable = false)
-	private long contatoEmpresa;
+	private String contatoEmpresa;
 
 	@Column(nullable = false)
 	private String emailEmpresa;
@@ -66,7 +66,7 @@ public class Empresa implements Serializable {
 	private String responsavel;
 
 	@Column(nullable = false)
-	private long contatoResp;
+	private String contatoResp;
 
 	@Column(nullable = false)
 	private String emailResp;
@@ -105,19 +105,19 @@ public class Empresa implements Serializable {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	public long getCnpj() {
+	public String getCnpj() {
 		return this.cnpj;
 	}
 
-	public void setCnpj(long cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 
-	public long getInscricao() {
+	public String getInscricao() {
 		return this.inscricao;
 	}
 
-	public void setInscricao(long inscricao) {
+	public void setInscricao(String inscricao) {
 		this.inscricao = inscricao;
 	}
 
@@ -129,11 +129,11 @@ public class Empresa implements Serializable {
 		this.endRua = endRua;
 	}
 
-	public int getEndnum() {
+	public String getEndnum() {
 		return this.endNum;
 	}
 
-	public void setEndnum(int endNum) {
+	public void setEndnum(String endNum) {
 		this.endNum = endNum;
 	}
 
@@ -169,11 +169,11 @@ public class Empresa implements Serializable {
 		this.endEstado = endEstado;
 	}
 
-	public long getContatoempresa() {
+	public String getContatoempresa() {
 		return this.contatoEmpresa;
 	}
 
-	public void setContatoempresa(long contatoEmpresa) {
+	public void setContatoempresa(String contatoEmpresa) {
 		this.contatoEmpresa = contatoEmpresa;
 	}
 
@@ -193,11 +193,11 @@ public class Empresa implements Serializable {
 		this.responsavel = responsavel;
 	}
 
-	public long getContatoresp() {
+	public String getContatoresp() {
 		return this.contatoResp;
 	}
 
-	public void setContatoresp(long contatoResp) {
+	public void setContatoresp(String contatoResp) {
 		this.contatoResp = contatoResp;
 	}
 

@@ -50,9 +50,17 @@ public class PatioResource {
     pr.delete(patio);
   }
 
-  @PutMapping("/patio")
-  public Patio atualizaPatio(@RequestBody Patio patio) {
-    return pr.save(patio);
+  @PutMapping("/atualizar/patio/{id}") // patio ID
+  public Patio atualizaPatio(@PathVariable(value = "id") long id, @RequestBody Patio dados) {
+	Patio patio = pr.findPatioById(id);
+	
+	patio.setNome(dados.getNome());
+	patio.setValor(dados.getValor());
+	patio.setPeriodo(dados.getPeriodo());
+	patio.setAdicional(dados.getAdicional());
+	patio.setCapacidade(dados.getCapacidade());
+    
+	return pr.save(patio);
   }
 
 }

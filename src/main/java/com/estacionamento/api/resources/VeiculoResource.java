@@ -50,12 +50,14 @@ public class VeiculoResource {
     vr.delete(veiculo);
   }
 
-  @PutMapping("/veiculo/{id}") // veiculo ID
+  @PutMapping("/atualizar/veiculo/{id}") // veiculo ID
   public Veiculo atualizaVeiculo(@PathVariable(value = "id") long id, @RequestBody Veiculo dados) {
     Veiculo veiculo = vr.findVeiculoById(id);
+    
     veiculo.setStatus(dados.getStatus());
     veiculo.setHrSaida(dados.getHrSaida());
     veiculo.setValor(dados.getValor());
+    
     return vr.save(veiculo);
   }
 
