@@ -89,19 +89,19 @@ public class Empresa implements Serializable {
 		this.id = id;
 	}
 
-	public String getRazaosocial() {
+	public String getRazaoSocial() {
 		return this.razaoSocial;
 	}
 
-	public void setRazaosocial(String razaoSocial) {
+	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
 	}
 
-	public String getNomefantasia() {
+	public String getNomeFantasia() {
 		return this.nomeFantasia;
 	}
 
-	public void setNomefantasia(String nomeFantasia) {
+	public void setNomeFantasia(String nomeFantasia) {
 		this.nomeFantasia = nomeFantasia;
 	}
 
@@ -125,63 +125,63 @@ public class Empresa implements Serializable {
 		return this.endRua;
 	}
 
-	public void setEndrua(String endRua) {
+	public void setEndRua(String endRua) {
 		this.endRua = endRua;
 	}
 
-	public String getEndnum() {
+	public String getEndNum() {
 		return this.endNum;
 	}
 
-	public void setEndnum(String endNum) {
+	public void setEndNum(String endNum) {
 		this.endNum = endNum;
 	}
 
-	public String getEndcomp() {
+	public String getEndComp() {
 		return this.endComp;
 	}
 
-	public void setEndcomp(String endComp) {
+	public void setEndComp(String endComp) {
 		this.endComp = endComp;
 	}
 
-	public String getEndbairro() {
+	public String getEndBairro() {
 		return this.endBairro;
 	}
 
-	public void setEndbairro(String endBairro) {
+	public void setEndBairro(String endBairro) {
 		this.endBairro = endBairro;
 	}
 
-	public String getEndcidade() {
+	public String getEndCidade() {
 		return this.endCidade;
 	}
 
-	public void setEndcidade(String endCidade) {
+	public void setEndCidade(String endCidade) {
 		this.endCidade = endCidade;
 	}
 
-	public String getEndestado() {
+	public String getEndEstado() {
 		return this.endEstado;
 	}
 
-	public void setEndestado(String endEstado) {
+	public void setEndEstado(String endEstado) {
 		this.endEstado = endEstado;
 	}
 
-	public String getContatoempresa() {
+	public String getContatoEmpresa() {
 		return this.contatoEmpresa;
 	}
 
-	public void setContatoempresa(String contatoEmpresa) {
+	public void setContatoEmpresa(String contatoEmpresa) {
 		this.contatoEmpresa = contatoEmpresa;
 	}
 
-	public String getEmailempresa() {
+	public String getEmailEmpresa() {
 		return this.emailEmpresa;
 	}
 
-	public void setEmailempresa(String emailEmpresa) {
+	public void setEmailEmpresa(String emailEmpresa) {
 		this.emailEmpresa = emailEmpresa;
 	}
 
@@ -197,15 +197,15 @@ public class Empresa implements Serializable {
 		return this.contatoResp;
 	}
 
-	public void setContatoresp(String contatoResp) {
+	public void setContatoResp(String contatoResp) {
 		this.contatoResp = contatoResp;
 	}
 
-	public String getEmailresp() {
+	public String getEmailResp() {
 		return this.emailResp;
 	}
 
-	public void setEmailresp(String emailResp) {
+	public void setEmailResp(String emailResp) {
 		this.emailResp = emailResp;
 	}
 

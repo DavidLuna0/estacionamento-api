@@ -34,7 +34,7 @@ public class EmpresaResource {
   }
 
   @PostMapping("/empresa")
-  public Empresa salvEmpresa(@RequestBody Empresa empresa) {
+  public Empresa salvaEmpresa(@RequestBody Empresa empresa) {
     return er.save(empresa);
   }
 
