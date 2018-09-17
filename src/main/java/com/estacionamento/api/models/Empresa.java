@@ -193,7 +193,7 @@ public class Empresa implements Serializable {
 		this.responsavel = responsavel;
 	}
 
-	public String getContatoresp() {
+	public String getContatoResp() {
 		return this.contatoResp;
 	}
 
