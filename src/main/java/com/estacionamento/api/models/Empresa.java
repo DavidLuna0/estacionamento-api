@@ -121,7 +121,7 @@ public class Empresa implements Serializable {
 		this.inscricao = inscricao;
 	}
 
-	public String getEndrua() {
+	public String getEndRua() {
 		return this.endRua;
 	}
 
