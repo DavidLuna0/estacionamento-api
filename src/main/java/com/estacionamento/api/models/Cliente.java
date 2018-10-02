@@ -4,10 +4,15 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "TB_CLIENTE")
@@ -27,14 +32,6 @@ public class Cliente implements Serializable {
 	
 	@Column(nullable = false)
 	private String dataDeNascimento;
-	
-	public String getDataDeNascimento() {
-		return dataDeNascimento;
-	}
-
-	public void setDataDeNascimento(String dataDeNascimento) {
-		this.dataDeNascimento = dataDeNascimento;
-	}
 
 	@Column(nullable = false)
 	private String rua;
@@ -65,9 +62,11 @@ public class Cliente implements Serializable {
 	@Column(nullable = false)
 	private String observacao;
 	
-	/*
-	 * Getters and setters da classe Cliente
-	 */
+	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name = "empresa_cliente_fk"), nullable = false)
+	@JsonBackReference
+	private Empresa empresa = new Empresa();
+	
 
 	public long getId() {
 		return id;
@@ -91,6 +90,14 @@ public class Cliente implements Serializable {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+	public String getDataDeNascimento() {
+		return dataDeNascimento;
+	}
+
+	public void setDataDeNascimento(String dataDeNascimento) {
+		this.dataDeNascimento = dataDeNascimento;
 	}
 
 	public String getRua() {
@@ -171,5 +178,15 @@ public class Cliente implements Serializable {
 
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
+	}
+	
+	public Empresa getEmpresa()
+	{
+		return this.empresa;
+	}
+
+	public void setEmpresa(Empresa empresa)
+	{
+		this.empresa = empresa;
 	}
 }

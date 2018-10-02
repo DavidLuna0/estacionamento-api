@@ -80,6 +80,11 @@ public class Empresa implements Serializable {
 	@Cascade(CascadeType.ALL)
 	@JsonManagedReference
 	private List<Usuario> usuarios = new ArrayList<Usuario>();
+	
+	@OneToMany(mappedBy = "empresa", orphanRemoval = true)
+	@Cascade(CascadeType.ALL)
+	@JsonManagedReference
+	private List<Cliente> clientes = new ArrayList<Cliente>();
 
 	public long getId() {
 		return this.id;
@@ -224,5 +229,13 @@ public class Empresa implements Serializable {
 	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
+	
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}	
 
 }
