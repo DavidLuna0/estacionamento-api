@@ -16,6 +16,7 @@ import com.estacionamento.api.models.Cliente;
 import com.estacionamento.api.models.Empresa;
 import com.estacionamento.api.repository.ClienteRepository;
 import com.estacionamento.api.repository.EmpresaRepository;
+import com.estacionamento.api.services.ClienteService;
 
 @RestController
 @RequestMapping(value="/api")
@@ -26,6 +27,9 @@ public class ClienteResource {
 	
 	@Autowired
 	EmpresaRepository er;
+	
+	@Autowired
+	ClienteService cs;
 	
 	@GetMapping("/empresa/{id}/clientes")
 	public List<Cliente> listaClientes(@PathVariable(value = "id") long id) {
@@ -54,21 +58,6 @@ public class ClienteResource {
 	@PutMapping("/atualizar/cliente/{id}")
 	public Cliente atualizaCliente(@PathVariable(value = "id") long id, @RequestBody Cliente dados) {
 		Cliente cliente = cr.findClienteById(id);
-		
-		cliente.setNome(dados.getNome());
-		cliente.setCpf(dados.getCpf());
-		cliente.setDataDeNascimento(dados.getDataDeNascimento());
-		cliente.setRua(dados.getRua());
-		cliente.setNumero(dados.getNumero());
-		cliente.setComplemento(dados.getComplemento());
-		cliente.setCidade(dados.getCidade());
-		cliente.setUF(dados.getUF());
-		cliente.setPlaca(dados.getPlaca());
-		cliente.setCorDoCarro(dados.getCorDoCarro());
-		cliente.setModeloDoCarro(dados.getModeloDoCarro());
-		cliente.setAnoDoCarro(dados.getAnoDoCarro());
-		cliente.setObservacao(dados.getObservacao());
-		
-		return cr.save(cliente);
+		return cs.update(cliente, dados);
 	}
 }
